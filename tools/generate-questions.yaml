@@ -1,0 +1,55 @@
+name: generate-exam-questions
+description: Generate structured exam questions from supplied educational content and constraints.
+version: "1.0.0"
+input_schema:
+  type: object
+  properties:
+    topic:
+      type: string
+      description: Subject or topic for the questions.
+    source_text:
+      type: string
+      description: Optional source material used to ground generated questions.
+    question_type:
+      type: string
+      enum:
+        - mcq
+        - short_answer
+        - true_false
+        - descriptive
+      description: Type of examination question.
+    count:
+      type: integer
+      minimum: 1
+      maximum: 50
+      description: Number of questions to generate.
+    difficulty:
+      type: string
+      enum:
+        - easy
+        - medium
+        - hard
+      description: Requested difficulty level.
+    options_per_question:
+      type: integer
+      minimum: 2
+      maximum: 6
+      description: Number of options for MCQ questions.
+  required:
+    - topic
+    - question_type
+    - count
+    - difficulty
+output_schema:
+  type: object
+  properties:
+    topic:
+      type: string
+    count:
+      type: integer
+    questions:
+      type: array
+implementation:
+  type: script
+  path: generate_questions.py
+  runtime: python3

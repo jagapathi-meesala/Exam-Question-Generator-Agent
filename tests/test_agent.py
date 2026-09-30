@@ -26,8 +26,8 @@ def test_validation():
 
 def test_registry_and_adapter():
     adapter = PortableAdapter()
-    assert adapter.registry.discover() == ["generate_exam_questions"]
-    result = adapter.invoke("generate_exam_questions", request(count=1))
+    assert adapter.registry.discover() == ["generate-exam-questions"]
+    result = adapter.invoke("generate-exam-questions", request(count=1))
     assert result["ok"] is True
 
 def test_unknown_tool():
