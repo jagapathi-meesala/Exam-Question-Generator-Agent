@@ -1,0 +1,8 @@
+spec_version: "0.1.0"
+name: exam-question-generator-agent
+version: 1.0.0
+description: Generates structured examination questions from supplied subject content, topics, difficulty, question type, and constraints.
+skills:
+  - skills/exam-question-generation/SKILL.md
+tools:
+  - tools/generate_questions.yaml
